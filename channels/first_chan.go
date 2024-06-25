@@ -14,4 +14,9 @@ func main() {
 	done := make(chan bool)
 	go output_stuff("Hi bro I am going to be shoved into a channel", done)
 	<-done
+
+	for ind := 1; ind <= 20; ind++ {
+		fmt.Println(ind * ind)
+	}
+
 }
