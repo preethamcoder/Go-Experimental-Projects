@@ -8,6 +8,7 @@ import (
 
 func main() {
 	server := gin.Default()
+	server.LoadHTMLGlob("templates/*")
 	server.GET("/", getEventsFr)
 	server.GET("/events", getEvents)
 	server.Run(":8080")
