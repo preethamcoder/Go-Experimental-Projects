@@ -9,7 +9,7 @@ import (
 func main() {
 	server := gin.Default()
 	server.LoadHTMLGlob("templates/*")
-	server.GET("/", getEventsFr)
+	server.GET("/", getHome)
 	server.GET("/events", getEvents)
 	server.Run(":8080")
 }
@@ -17,6 +17,6 @@ func main() {
 func getEvents(context *gin.Context) {
 	context.JSON(http.StatusOK, "Ayo this is how we access something")
 }
-func getEventsFr(context *gin.Context) {
-	context.JSON(http.StatusOK, "Home page")
+func getHome(context *gin.Context) {
+	context.HTML(http.StatusOK, "index.html", nil)
 }
