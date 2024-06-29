@@ -30,5 +30,9 @@ func createEvent(context *gin.Context) {
 	err := context.ShouldBindJSON(&event)
 	if err != nil {
 		context.JSON(http.StatusBadRequest, gin.H{"message": "required values missing"})
+		return
 	}
+	event.ID = 1
+	event.Host = 1
+	context.JSON(http.StatusCreated, gin.H{"message": "Event created", "event": event.ID, "host": event.Host})
 }
