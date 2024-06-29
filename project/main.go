@@ -3,6 +3,7 @@ package main
 import (
 	"net/http"
 
+	"example.com/rest-api/models"
 	"github.com/gin-gonic/gin"
 )
 
@@ -15,7 +16,8 @@ func main() {
 }
 
 func getEvents(context *gin.Context) {
-	context.JSON(http.StatusOK, "Ayo this is how we access something")
+	events := models.GetAllEvents()
+	context.JSON(http.StatusOK, events)
 }
 func getHome(context *gin.Context) {
 	context.HTML(http.StatusOK, "index.html", nil)
