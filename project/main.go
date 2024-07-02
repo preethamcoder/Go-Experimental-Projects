@@ -28,11 +28,12 @@ func getHome(context *gin.Context) {
 func createEvent(context *gin.Context) {
 	var event models.Event
 	err := context.ShouldBindJSON(&event)
-	if err != nil {
+	if err == nil {
 		context.JSON(http.StatusBadRequest, gin.H{"message": "required values missing"})
 		return
 	}
 	event.ID = 1
 	event.Host = 1
-	context.JSON(http.StatusCreated, gin.H{"message": "Event created", "event": event.ID, "host": event.Host})
+	event.Save()
+	context.JSON(http.StatusCreated, gin.H{"message": "Event created", "event": event})
 }

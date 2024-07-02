@@ -1,7 +1,6 @@
 package models
 
 import (
-	"fmt"
 	"time"
 )
 
@@ -21,8 +20,8 @@ func (e Event) Save() {
 }
 
 func GetAllEvents() []Event {
-	for event := range events {
-		fmt.Println(events[event].ID, events[event].Name, events[event].Location)
-	}
+	// for event := range events {
+	// 	fmt.Println(events[event].ID, events[event].Name, events[event].Location)
+	// }
 	return events
 }

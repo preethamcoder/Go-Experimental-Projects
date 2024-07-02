@@ -1,0 +1,10 @@
+POST http://localhost:8080/events
+content-type: application/jso
+
+
+{
+    "Name":"Preetham",
+    "Description":"This is my first info JSON",
+    "Location":"Random",
+    "DateTime":"2024-06-29:T15:30:00.000Z"
+}
